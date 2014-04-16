@@ -13,7 +13,7 @@ class Geocodable extends DataExtension {
 	);
 
 	public function onBeforeWrite() {
-		if (!$this->owner->isAddressChanged(2) && $this->Lat != '' && $this->Lng != '') return;
+		if (!$this->owner->isAddressChanged(2) && $this->Lat != 0 && $this->Lng != 0) return;
 
 		$address = $this->owner->getFullAddress();
 		$region  = strtolower($this->owner->Country);
