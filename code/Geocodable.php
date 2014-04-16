@@ -8,8 +8,8 @@
 class Geocodable extends DataExtension {
 
 	public static $db = array(
-		'Lat' => 'Float',
-		'Lng' => 'Float'
+		'Lat' => 'Decimal(9,6)',
+		'Lng' => 'Decimal(9,6)'
 	);
 
 	public function onBeforeWrite() {
