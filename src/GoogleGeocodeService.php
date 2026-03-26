@@ -4,7 +4,6 @@ namespace Symbiote\Addressable;
 
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Environment;
-use SilverStripe\Control\Director;
 use GuzzleHttp\Client;
 use SimpleXMLElement;
 use Exception;
@@ -34,7 +33,7 @@ class GoogleGeocodeService implements GeocodeServiceInterface
 
     /**
      * Retrieve the Google Geocoding API key from environment or config API
-     * @throws \Exception
+     * @throws Exception
      */
     public function getApiKey() : string
     {
@@ -47,14 +46,14 @@ class GoogleGeocodeService implements GeocodeServiceInterface
         }
         if (!$key) {
             // Google Geocode API requires a key
-            throw new \Exception('No google_api_key configured. This is not allowed.');
+            throw new Exception('No google_api_key configured. This is not allowed.');
         }
         return $key;
     }
 
     /**
      * Retrieve the Google Geocoding API URL from config API
-     * @throws \Exception
+     * @throws Exception
      */
     public function getApiUrl() : string
     {
@@ -66,7 +65,7 @@ class GoogleGeocodeService implements GeocodeServiceInterface
 
         if (!$url) {
             // If no URL configured. Stop.
-            throw new \Exception('No google_api_url configured. This is not allowed.');
+            throw new Exception('No google_api_url configured. This is not allowed.');
         }
 
         return $url;

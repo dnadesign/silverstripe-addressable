@@ -1,0 +1,487 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method \(static\(Symbiote\\Addressable\\Addressable\)&Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\)\|\(static\(Symbiote\\Addressable\\Addressable\)&Symbiote\\Addressable\\Tests\\GeocodableDataObjectTest\)\:\:getGeocoder\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method config\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: staticMethod.deprecatedClass
+			count: 6
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method customise\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method extend\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method hasExtension\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method merge\(\) of deprecated class SilverStripe\\ORM\\ArrayList\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\List\\ArrayList$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method renderWith\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Addressable.php
+
+		-
+			message: '#^Cannot resolve the type of Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>allowed_countries\. Use Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>get\(''allowed_countries''\) instead\.$#'
+			identifier: silverstan.configurationProperty.unresolvableType
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Cannot resolve the type of Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>allowed_states\. Use Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>get\(''allowed_states''\) instead\.$#'
+			identifier: silverstan.configurationProperty.unresolvableType
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Cannot resolve the type of Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>postcode_regex\. Use Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:config\(\)\-\>get\(''postcode_regex''\) instead\.$#'
+			identifier: silverstan.configurationProperty.unresolvableType
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Class Symbiote\\Addressable\\Addressable extends generic class SilverStripe\\Core\\Extension but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Addressable\:\:getAddressFields\(\) has parameter \$_params with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Addressable\:\:populateDefaults\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Addressable\:\:updateCMSFields\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Addressable\:\:updateFrontEndFields\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Addressable\:\:\$db has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Addressable.php
+
+		-
+			message: '''
+				#^Call to method validationError\(\) of deprecated class SilverStripe\\Forms\\Validator\:
+				5\.4\.0 Will be renamed to SilverStripe\\Forms\\Validation\\Validator$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Forms/RegexTextField.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Forms\\RegexTextField\:\:setRegex\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Forms/RegexTextField.php
+
+		-
+			message: '''
+				#^Parameter \$validator of method Symbiote\\Addressable\\Forms\\RegexTextField\:\:validate\(\) has typehint with deprecated class SilverStripe\\Forms\\Validator\:
+				5\.4\.0 Will be renamed to SilverStripe\\Forms\\Validation\\Validator$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Forms/RegexTextField.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Forms\\RegexTextField\:\:\$regex has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Forms/RegexTextField.php
+
+		-
+			message: '''
+				#^Call to method hasExtension\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '''
+				#^Call to method hasMethod\(\) of deprecated class SilverStripe\\View\\ViewableData\:
+				5\.4\.0 Will be renamed to SilverStripe\\Model\\ModelData$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Class Symbiote\\Addressable\\Geocodable extends generic class SilverStripe\\Core\\Extension but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Geocodable\:\:getGeocoder\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Geocodable\:\:onBeforeWrite\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Geocodable\:\:updateCMSFields\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Geocodable\:\:updateFrontEndFields\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Geocodable\:\:\$db has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Geocodable.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\GeocodeServiceException\:\:__construct\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/GeocodeServiceException.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\GeocodeServiceException\:\:__construct\(\) has parameter \$responseBody with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/GeocodeServiceException.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\GeocodeServiceException\:\:__construct\(\) has parameter \$statusCode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/GeocodeServiceException.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\GeocodeServiceException\:\:getResponse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/GeocodeServiceException.php
+
+		-
+			message: '#^Class Symbiote\\Addressable\\GeocodeServiceException constructor invoked with 2 parameters, 3\-4 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/GoogleGeocodeService.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: src/GoogleGeocodeService.php
+
+		-
+			message: '#^Static property Symbiote\\Addressable\\GoogleGeocodeService\:\:\$google_api_key is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/GoogleGeocodeService.php
+
+		-
+			message: '#^Static property Symbiote\\Addressable\\GoogleGeocodeService\:\:\$google_api_url is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/GoogleGeocodeService.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: src/MapboxGeocodeService.php
+
+		-
+			message: '#^Static property Symbiote\\Addressable\\MapboxGeocodeService\:\:\$mapbox_api_key is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/MapboxGeocodeService.php
+
+		-
+			message: '#^Static property Symbiote\\Addressable\\MapboxGeocodeService\:\:\$mapbox_api_url is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/MapboxGeocodeService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between bool and 0 will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: src/MapboxGeocodeService.php
+
+		-
+			message: '#^Undefined variable\: \$status$#'
+			identifier: variable.undefined
+			count: 1
+			path: src/MapboxGeocodeService.php
+
+		-
+			message: '#^Class Symbiote\\Addressable\\Tests\\AddressableDataObjectTest is missing required configuration property \$table_name$#'
+			identifier: silverstan.configurationProperty.required
+			count: 1
+			path: tests/AddressableDataObjectTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\AddressableDataObjectTest\:\:\$extensions has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/AddressableDataObjectTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTemplateTest\:\:assertEqualIgnoringWhitespace\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTemplateTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTemplateTest\:\:assertEqualIgnoringWhitespace\(\) has parameter \$a with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: tests/AddressableTemplateTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTemplateTest\:\:assertEqualIgnoringWhitespace\(\) has parameter \$b with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: tests/AddressableTemplateTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTemplateTest\:\:assertEqualIgnoringWhitespace\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: tests/AddressableTemplateTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTemplateTest\:\:testAddressMap\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTemplateTest.php
+
+		-
+			message: '#^Call to an undefined method SilverStripe\\Config\\Collections\\ConfigCollectionInterface\:\:set\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testAddressableWrite\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testConfigureNoCountry\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testConfigureOneCountryGlobally\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testConfigureOneCountryOnExtendable\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testConfigureOneStateGlobally\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\AddressableTest\:\:testConfigureOneStateOnExtendable\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/AddressableTest.php
+
+		-
+			message: '#^Call to an undefined method SilverStripe\\Config\\Collections\\ConfigCollectionInterface\:\:set\(\)\.$#'
+			identifier: method.notFound
+			count: 16
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with false and ''Lack of an API URL…'' will always evaluate to false\.$#'
+			identifier: method.impossibleType
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with false and ''Lack of an API key…'' will always evaluate to false\.$#'
+			identifier: method.impossibleType
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:testApiKeySetGet\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:testApiUrlSetGet\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Parameter \#2 \$value of static method SilverStripe\\Core\\Environment\:\:setEnv\(\) expects string, false given\.$#'
+			identifier: argument.type
+			count: 5
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Parameter \#2 \$value of static method SilverStripe\\Core\\Environment\:\:setEnv\(\) expects string, null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:\$envApiKey has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:\$geocodeServiceApiKey has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:\$geocodeServiceApiUrl has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:\$googleGeocodeServiceApiKey has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableApiValuesTest\:\:\$googleGeocodeServiceApiUrl has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableApiValuesTest.php
+
+		-
+			message: '#^Class Symbiote\\Addressable\\Tests\\GeocodableDataObjectTest is missing required configuration property \$table_name$#'
+			identifier: silverstan.configurationProperty.required
+			count: 1
+			path: tests/GeocodableDataObjectTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableDataObjectTest\:\:\$extensions has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableDataObjectTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableTest\:\:testDisableLatLngUpdate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableTest\:\:testGetLastError\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableTest\:\:testIntendedTruncation\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableTest\:\:testLatLngOverride\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Method Symbiote\\Addressable\\Tests\\GeocodableTest\:\:testUpdatingLatLngFromAddress\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Property Symbiote\\Addressable\\Tests\\GeocodableTest\:\:\$use_draft_site has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: tests/GeocodableTest.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 2
+			path: tests/GeocodableTest.php

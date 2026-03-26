@@ -1,0 +1,15 @@
+includes:
+  - phpstan-baseline.neon
+parameters:
+  level: 7
+  paths:
+    - _config.php
+    - src
+    - tests
+  reportUnmatchedIgnoredErrors: false
+  treatPhpDocTypesAsCertain: false
+  silverstan:
+    includeTestOnly: true
+  ignoreErrors:
+    -
+      identifier: missingType.iterableValue

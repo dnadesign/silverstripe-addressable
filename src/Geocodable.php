@@ -2,7 +2,7 @@
 
 namespace Symbiote\Addressable;
 
-use Psr\Log\LoggerInterface;
+use SilverStripe\Core\Extension;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CompositeField;
@@ -12,8 +12,6 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\ORM\DataExtension;
-use SilverStripe\Core\Injector\Injector;
 
 /**
  * Adds automatic geocoding to a {@link Addressable} object. Uses the Google
@@ -21,10 +19,10 @@ use SilverStripe\Core\Injector\Injector;
  *
  * @package silverstripe-addressable
  */
-class Geocodable extends DataExtension
+class Geocodable extends Extension
 {
     /**
-     * @var Symbiote\Addressable\GeocodeServiceInterface
+     * @var GeocodeServiceInterface
      */
     public $geocoder;
 
@@ -70,7 +68,7 @@ class Geocodable extends DataExtension
         }
 
         $address = $record->getFullAddress();
-        $region = strtolower($record->Country);
+        $region = strtolower((string) $record->Country);
 
         $point = [];
         try {
@@ -93,7 +91,7 @@ class Geocodable extends DataExtension
      */
     public function getLastGeocodableException()
     {
-        return $this->owner->__geocodable_exception;
+        return $this->getOwner()->__geocodable_exception;
     }
 
     public function getGeocoder()

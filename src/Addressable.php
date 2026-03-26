@@ -2,15 +2,14 @@
 
 namespace Symbiote\Addressable;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\i18n\Data\Intl\IntlLocales;
-use SilverStripe\ORM\DataExtension;
 use Symbiote\Addressable\Forms\RegexTextField;
-use Dynamic\CountryDropdownField\Fields\CountryDropdownField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use Exception;
 
@@ -22,7 +21,7 @@ use Exception;
  *
  * @package silverstripe-addressable
  */
-class Addressable extends DataExtension
+class Addressable extends Extension
 {
     private static $db = [
         'Address' => 'Varchar(255)',
@@ -87,16 +86,16 @@ class Addressable extends DataExtension
 
     public function populateDefaults()
     {
-        $allowedStates = $this->owner->getAllowedStates();
+        $allowedStates = $this->getOwner()->getAllowedStates();
         if (is_array($allowedStates) &&
             count($allowedStates) === 1) {
-            $this->owner->State = array_key_first($allowedStates);
+            $this->getOwner()->State = array_key_first($allowedStates);
         }
 
-        $allowedCountries = $this->owner->getAllowedCountries();
+        $allowedCountries = $this->getOwner()->getAllowedCountries();
         if (is_array($allowedCountries) &&
             count($allowedCountries) === 1) {
-            $this->owner->Country = array_key_first($allowedCountries);
+            $this->getOwner()->Country = array_key_first($allowedCountries);
         }
     }
 
@@ -106,11 +105,11 @@ class Addressable extends DataExtension
     public function hasAddress()
     {
         return (
-            $this->owner->Address
-            && $this->owner->Suburb
-            && $this->owner->State
-            && $this->owner->Postcode
-            && $this->owner->Country
+            $this->getOwner()->Address
+            && $this->getOwner()->Suburb
+            && $this->getOwner()->State
+            && $this->getOwner()->Postcode
+            && $this->getOwner()->Country
         );
     }
 
@@ -122,11 +121,11 @@ class Addressable extends DataExtension
     public function getFullAddress()
     {
         $parts = [
-            $this->owner->Address,
-            $this->owner->Suburb,
-            $this->owner->State,
-            $this->owner->Postcode,
-            $this->owner->getCountryName()
+            $this->getOwner()->Address,
+            $this->getOwner()->Suburb,
+            $this->getOwner()->State,
+            $this->getOwner()->Postcode,
+            $this->getOwner()->getCountryName()
         ];
 
         return implode(', ', array_filter($parts));
@@ -139,7 +138,7 @@ class Addressable extends DataExtension
      */
     public function getFullAddressHTML()
     {
-        return $this->owner->renderWith('Symbiote/Addressable/Address');
+        return $this->getOwner()->renderWith('Symbiote/Addressable/Address');
     }
 
     /**
@@ -161,17 +160,17 @@ class Addressable extends DataExtension
             'Key'      => Config::inst()->get(GoogleGeocodeService::class, 'google_api_key')
         ];
 
-        if ($this->owner->hasExtension(Geocodable::class)) {
-            $data['Lat'] = $this->owner->Lat;
-            $data['Lng'] = $this->owner->Lng;
+        if ($this->getOwner()->hasExtension(Geocodable::class)) {
+            $data['Lat'] = $this->getOwner()->Lat;
+            $data['Lng'] = $this->getOwner()->Lng;
 
-            if (is_a($this->owner->getGeocoder(), MapboxGeocodeService::class)) {
+            if (is_a($this->getOwner()->getGeocoder(), MapboxGeocodeService::class)) {
                 $data['Type'] = 'Mapbox';
                 $data['Key'] = Config::inst()->get(MapboxGeocodeService::class, 'mapbox_api_key');
             }
         }
 
-        $object = $this->owner->customise($data);
+        $object = $this->getOwner()->customise($data);
         return $object->renderWith('Symbiote/Addressable/AddressMap');
     }
 
@@ -182,7 +181,7 @@ class Addressable extends DataExtension
      */
     public function getCountryName()
     {
-        return IntlLocales::singleton()->countryName($this->owner->Country);
+        return IntlLocales::singleton()->countryName($this->getOwner()->Country);
     }
 
     /**
@@ -200,7 +199,7 @@ class Addressable extends DataExtension
             'Postcode',
             'Country'
         ];
-        $changed = $this->owner->getChangedFields(false, $level);
+        $changed = $this->getOwner()->getChangedFields(false, $level);
 
         foreach ($fields as $field) {
             if (array_key_exists($field, $changed)) {
@@ -243,7 +242,7 @@ class Addressable extends DataExtension
 
         // Get state field
         $label = _t('Addressable.STATE', 'State');
-        $allowedStates = $this->owner->getAllowedStates();
+        $allowedStates = $this->getOwner()->getAllowedStates();
         if (count($allowedStates) >= 1) {
             // If allowed states are restricted, only allow those
             $fields[] = DropdownField::create('State', $label, $allowedStates);
@@ -261,10 +260,10 @@ class Addressable extends DataExtension
         $fields[] = DropdownField::create(
             'Country',
             _t('Addressable.COUNTRY', 'Country'),
-            $this->owner->getAllowedCountries()
+            $this->getOwner()->getAllowedCountries()
         );
 
-        $this->owner->extend("updateAddressFields", $fields);
+        $this->getOwner()->extend("updateAddressFields", $fields);
 
         return $fields;
     }
@@ -277,7 +276,7 @@ class Addressable extends DataExtension
     public function getAllowedStates()
     {
         // Get states from extending object. (ie. Page, DataObject)
-        $allowedStates = $this->owner->config()->allowed_states;
+        $allowedStates = $this->getOwner()->config()->allowed_states;
         if (is_array($allowedStates) &&
             $allowedStates) {
             return $allowedStates;
@@ -301,7 +300,7 @@ class Addressable extends DataExtension
     public function getAllowedCountries()
     {
         // Get allowed_countries from extending object. (ie. Page, DataObject)
-        $allowedCountries = $this->owner->config()->allowed_countries;
+        $allowedCountries = $this->getOwner()->config()->allowed_countries;
         if (is_array($allowedCountries) &&
             $allowedCountries) {
             return $allowedCountries;
@@ -325,7 +324,7 @@ class Addressable extends DataExtension
     private function getPostcodeRegex()
     {
         // Get postcode regex from extending object. (ie. Page, DataObject)
-        $regex = $this->owner->config()->postcode_regex;
+        $regex = $this->getOwner()->config()->postcode_regex;
         if ($regex) {
             return $regex;
         }

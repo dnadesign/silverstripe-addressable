@@ -2,9 +2,9 @@
 
 namespace Symbiote\Addressable\Tests;
 
-use Symbiote\Addressable\GeocodeService;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\SapphireTest;
+use Symbiote\Addressable\GoogleGeocodeService;
 
 class AddressableTemplateTest extends SapphireTest
 {
@@ -20,9 +20,9 @@ class AddressableTemplateTest extends SapphireTest
         // This is **not** a real key.
         // This is to test that the key gets put into the embeddable map properly.
         //
-        Config::inst()->set(GeocodeService::class, 'google_api_key', self::FAKE_GOOGLE_MAP_API_KEY);
+        Config::modify()->set(GoogleGeocodeService::class, 'google_api_key', self::FAKE_GOOGLE_MAP_API_KEY);
 
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
         $record->Address = '101-103 Courtenay Place';
         $record->Suburb = 'Wellington';
         $record->Postcode = '6011';
@@ -49,6 +49,6 @@ HTML;
      */
     protected function assertEqualIgnoringWhitespace($a, $b, $message = '')
     {
-        $this->assertEquals(preg_replace('/\s+/', '', $a), preg_replace('/\s+/', '', $b), $message);
+        $this->assertEquals(preg_replace('/\s+/', '', (string) $a), preg_replace('/\s+/', '', (string) $b), $message);
     }
 }
