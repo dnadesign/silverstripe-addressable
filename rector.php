@@ -17,6 +17,7 @@ use Rector\Config\RectorConfig;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 use Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector;
 use Rector\Php83\Rector\ClassMethod\AddOverrideAttributeToOverriddenMethodsRector;
+use Rector\PHPUnit\Set\PHPUnitSetList;
 
 return RectorConfig::configure()
     ->withImportNames(removeUnusedImports: true)
@@ -27,8 +28,9 @@ return RectorConfig::configure()
     ])
     ->withPhpSets()
     ->withSets([
-        SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_54,
+        SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_60,
         SilverstripeSetList::CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_110,
     ])
     ->withSkip([
         AddOverrideAttributeToOverriddenMethodsRector::class,
