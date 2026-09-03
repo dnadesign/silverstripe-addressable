@@ -20,12 +20,20 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^4.12||^5",
-        "guzzlehttp/guzzle": "^7"
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7",
+        "silverstripe/framework": "^6.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.5",
-        "phpunit/phpunit": "^9.6"
+        "cambis/silverstan": "^2.1",
+        "cambis/silverstripe-rector": "^2.1",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^11.0",
+        "silverstripe/cms": "^6.0",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "scripts": {
         "phpcbf": "phpcbf src/ src/ tests/",
@@ -39,7 +47,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.2.x-dev"
+            "dev-master": "6.0.x-dev"
         }
     },
     "replace": {
@@ -47,5 +55,13 @@
         "silverstripe-australia/addressable": "self.version"
     },
     "prefer-stable": true,
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "phpstan/extension-installer": true,
+            "silverstripe/vendor-plugin": true
+        },
+        "sort-packages": true
+    }
 }

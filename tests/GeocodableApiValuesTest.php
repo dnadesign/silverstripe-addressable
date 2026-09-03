@@ -2,6 +2,7 @@
 
 namespace Symbiote\Addressable\Tests;
 
+use Exception;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Environment;
 use SilverStripe\Dev\SapphireTest;
@@ -85,7 +86,7 @@ class GeocodableApiValuesTest extends SapphireTest
         try {
             $key = $service->getApiKey();
             $this->assertTrue(false, "Lack of an API key should trigger an \Exception");
-        } catch (\Exception) {
+        } catch (Exception) {
             // noop
         }
     }
@@ -116,7 +117,7 @@ class GeocodableApiValuesTest extends SapphireTest
         try {
             $url = $service->getApiUrl();
             $this->assertTrue(false, "Lack of an API URL should trigger an \Exception");
-        } catch (\Exception) {
+        } catch (Exception) {
             // noop
         }
     }

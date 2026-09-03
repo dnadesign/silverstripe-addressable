@@ -2,6 +2,7 @@
 
 namespace Symbiote\Addressable\Forms;
 
+use SilverStripe\Core\Validation\ValidationResult;
 use SilverStripe\Forms\TextField;
 
 /**
@@ -35,17 +36,20 @@ class RegexTextField extends TextField
         $this->regex = $regex;
     }
 
-    public function validate($validator)
+    public function validate(): ValidationResult
     {
-        if ($this->value && $this->regex) {
+        $this->beforeExtending('validate', function (ValidationResult $result) {
+            if (!$this->value || !$this->regex) {
+                return;
+            }
+
             if (!preg_match($this->regex, (string) $this->value)) {
                 $name = $this->Title() ?: $this->name;
                 $message = _t('RegexTextField.VALIDATE', 'Please enter a valid format for "%s".');
-                $validator->validationError($this->name, sprintf($message, $name), 'validation');
-                return false;
+                $result->addFieldError($this->name, \sprintf($message, $name));
             }
-        }
+        });
 
-        return true;
+        return parent::validate();
     }
 }

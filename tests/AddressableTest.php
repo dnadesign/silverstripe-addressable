@@ -13,7 +13,7 @@ class AddressableTest extends SapphireTest
 
     public function testAddressableWrite()
     {
-        $silverStripe = new AddressableDataObjectTest();
+        $silverStripe = AddressableDataObjectTest::create();
         $silverStripe->Address = '101-103 Courtenay Place';
         $silverStripe->Suburb = 'Wellington';
         $silverStripe->Postcode = '6011';
@@ -23,7 +23,7 @@ class AddressableTest extends SapphireTest
 
         $this->assertTrue($silverStripeID > 0);
 
-        $dynamic = new AddressableDataObjectTest();
+        $dynamic = AddressableDataObjectTest::create();
         $dynamic->Address = '1526 South 12th Street';
         $dynamic->Suburb = 'Sheboygan';
         $dynamic->State = 'WI';
@@ -56,7 +56,7 @@ class AddressableTest extends SapphireTest
      */
     public function testConfigureNoCountry()
     {
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
 
         // Test that nothing is populated by default
         // (we only populate if 1 item is defined in the list)
@@ -80,7 +80,7 @@ class AddressableTest extends SapphireTest
         Config::inst()->set(Addressable::class, 'allowed_countries', [
             'au' => 'Australia',
         ]);
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
 
         // Test that populateDefaults() is working
         $this->assertEquals(
@@ -102,7 +102,7 @@ class AddressableTest extends SapphireTest
         Config::inst()->set(AddressableDataObjectTest::class, 'allowed_countries', [
             'nz' => 'New Zealand',
         ]);
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
 
         // Test that populateDefaults() is working
         $this->assertEquals(
@@ -124,7 +124,7 @@ class AddressableTest extends SapphireTest
         Config::inst()->set(Addressable::class, 'allowed_states', [
             'vic' => 'Victoria',
         ]);
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
 
         // Test that populateDefaults() is working
         $this->assertEquals(
@@ -146,7 +146,7 @@ class AddressableTest extends SapphireTest
         Config::inst()->set(AddressableDataObjectTest::class, 'allowed_states', [
             'nsw' => 'New South Wales',
         ]);
-        $record = new AddressableDataObjectTest();
+        $record = AddressableDataObjectTest::create();
 
         // Test that populateDefaults() is working
         $this->assertEquals(
